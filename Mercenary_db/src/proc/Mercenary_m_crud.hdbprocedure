@@ -1,0 +1,244 @@
+PROCEDURE "SAP-HANA-Mercenary.Mercenary_db.proc::Mercenary_m_crud" (
+IN I_TRANS NVARCHAR(20),
+IN I_ID INTEGER,
+IN I_TUID INTEGER ,
+IN I_DESC NVARCHAR(60),
+IN I_FLAG NVARCHAR(1),
+out ex_message nvarchar(200)
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+--   READS SQL DATA 
+AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+DECLARE lcon_10001 CONDITION FOR SQL_ERROR_CODE 10001;  
+
+DECLARE EXIT HANDLER FOR lcon_10001    -- RESIGNAL
+BEGIN
+  ex_message :=  'Error Code: ' || ::SQL_ERROR_CODE || ' ' || ::SQL_ERROR_MESSAGE; 
+END;
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION   -- SQL_ERROR_CODE 301
+BEGIN
+  ex_message := 'SQL Exception occurred!!';   
+END;
+ 
+if :I_TRANS is null or :I_ID is null or :I_TUID is null or :I_DESC is null or :I_FLAG is null then
+
+SIGNAL lcon_10001 SET MESSAGE_TEXT = 'Input parameter can not be empty';  
+
+end if;
+
+IF :I_TRANS = 'ALERTS' THEN
+
+					IF :I_FLAG = 'C' THEN
+					
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.alerts" 
+						
+								  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Alert ' || :I_ID || '-' || :I_TUID || ' inserted successfully'; 
+
+					ELSEIF :I_FLAG = 'R' THEN
+
+						SELECT 	"ID", 	"TUID", "ALERT_DESC" FROM "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.alerts" where 
+							 "ID" = :I_ID and "TUID" = :I_TUID;
+
+						ex_message := 'Alert ' || :I_ID || '-'  || :I_TUID || ' Read successfully'; 
+
+					ELSEIF :I_FLAG = 'U' THEN
+
+						UPDATE "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.alerts" 
+							  set ALERT_DESC= :I_DESC where
+							  ID = :I_ID and 
+							  TUID = :I_TUID;
+							  
+						ex_message := 'Alert ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					ELSEIF :I_FLAG = 'D' THEN
+
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.alerts" 
+							  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Alert ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					END IF;
+
+ELSEIF :I_TRANS = 'ENGINE' THEN
+
+					IF :I_FLAG = 'C' THEN
+					
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.engine" 
+								  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Engine ' || :I_ID || '-' || :I_TUID || ' inserted successfully'; 
+
+					ELSEIF :I_FLAG = 'R' THEN
+
+						SELECT 	"ID", 	"TUID", "ENG_DESC" FROM "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.engine" where 
+							 "ID" = :I_ID and "TUID" = :I_TUID;
+
+						ex_message := 'Engine ' || :I_ID || '-'  || :I_TUID || ' Read successfully'; 
+
+					ELSEIF :I_FLAG = 'U' THEN
+
+						UPDATE "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.engine" 
+							  set ENG_DESC= :I_DESC where
+							  ID = :I_ID and 
+							  TUID = :I_TUID;
+							  
+						ex_message := 'Engine ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					ELSEIF :I_FLAG = 'D' THEN
+
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.engine" 
+							  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Engine ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					END IF;
+
+
+ELSEIF :I_TRANS = 'REALITY_CHECK' THEN
+
+					IF :I_FLAG = 'C' THEN
+					
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.reality_check" 
+								  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Reality Check ' || :I_ID || '-' || :I_TUID || ' inserted successfully'; 
+
+					ELSEIF :I_FLAG = 'R' THEN
+
+						SELECT 	"ID", 	"TUID", "REAL_DESC" FROM "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.reality_check" where 
+							 "ID" = :I_ID and "TUID" = :I_TUID;
+
+						ex_message := 'Reality Check ' || :I_ID || '-'  || :I_TUID || ' Read successfully'; 
+
+					ELSEIF :I_FLAG = 'U' THEN
+
+						UPDATE "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.reality_check" 
+							  set REAL_DESC= :I_DESC where
+							  ID = :I_ID and 
+							  TUID = :I_TUID;
+							  
+						ex_message := 'Reality Check  ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					ELSEIF :I_FLAG = 'D' THEN
+
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.reality_check" 
+							  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Reality Check  ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					END IF;
+
+ELSEIF :I_TRANS = 'REFERENCE' THEN
+
+					IF :I_FLAG = 'C' THEN
+					
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.reference" 
+								  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Reference ' || :I_ID || '-' || :I_TUID || ' inserted successfully'; 
+
+					ELSEIF :I_FLAG = 'R' THEN
+
+						SELECT 	"ID", 	"TUID", "REF_DESC" FROM "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.reference" where 
+							 "ID" = :I_ID and "TUID" = :I_TUID;
+
+						ex_message := 'Reference ' || :I_ID || '-'  || :I_TUID || ' Read successfully'; 
+
+					ELSEIF :I_FLAG = 'U' THEN
+
+						UPDATE "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.reference" 
+							  set REF_DESC= :I_DESC where
+							  ID = :I_ID and 
+							  TUID = :I_TUID;
+							  
+						ex_message := 'Reference  ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					ELSEIF :I_FLAG = 'D' THEN
+
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.reference" 
+							  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Reference  ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					END IF;
+
+ELSEIF :I_TRANS = 'TOUR_PLAN' THEN
+
+					IF :I_FLAG = 'C' THEN
+					
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.tour_plan" 
+								  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Tour Plan ' || :I_ID || '-' || :I_TUID || ' inserted successfully'; 
+
+					ELSEIF :I_FLAG = 'R' THEN
+
+						SELECT 	"ID", 	"TUID", "TOURPLN_DESC" FROM "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.tour_plan" where 
+							 "ID" = :I_ID and "TUID" = :I_TUID;
+
+						ex_message := 'Tour Plan ' || :I_ID || '-'  || :I_TUID || ' Read successfully'; 
+
+					ELSEIF :I_FLAG = 'U' THEN
+
+						UPDATE "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.tour_plan" 
+							  set TOURPLN_DESC= :I_DESC where
+							  ID = :I_ID and 
+							  TUID = :I_TUID;
+							  
+						ex_message := 'Tour Plan  ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					ELSEIF :I_FLAG = 'D' THEN
+
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.tour_plan" 
+							  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Tour Plan  ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					END IF;
+
+ELSEIF :I_TRANS = 'TOUR_REPORT' THEN
+
+					IF :I_FLAG = 'C' THEN
+					
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.tour_report" 
+								  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Tour Report ' || :I_ID || '-' || :I_TUID || ' inserted successfully'; 
+
+					ELSEIF :I_FLAG = 'R' THEN
+
+						SELECT 	"ID", 	"TUID", "TOURREP_DESC" FROM "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.tour_report" where 
+							 "ID" = :I_ID and "TUID" = :I_TUID;
+
+						ex_message := 'Tour Report  ' || :I_ID || '-'  || :I_TUID || ' Read successfully'; 
+
+					ELSEIF :I_FLAG = 'U' THEN
+
+						UPDATE "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.tour_report" 
+							  set TOURREP_DESC= :I_DESC where
+							  ID = :I_ID and 
+							  TUID = :I_TUID;
+							  
+						ex_message := 'Tour Report   ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					ELSEIF :I_FLAG = 'D' THEN
+
+						INSERT INTO "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.tour_report" 
+							  values( :I_ID, :I_TUID, :I_DESC);
+
+						ex_message := 'Tour Report   ' || :I_ID || '-'  || :I_TUID || ' Record updated successfully'; 
+
+					END IF;
+					
+END IF;
+
+END

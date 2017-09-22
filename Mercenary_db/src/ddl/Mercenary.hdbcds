@@ -1,0 +1,206 @@
+namespace "SAP-HANA-Mercenary".Mercenary_db.ddl;
+
+context Mercenary {
+};
+
+context Mercenary_MD {
+    context TSM_M {
+        /*@@layout{"layoutInfo":{}}*/
+        entity product {
+            key ID       : Integer;
+            key TUID     : Integer;
+                PRD_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity category {
+            key ID       : Integer;
+            key TUID     : Integer;
+                CAT_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity partner {
+            key ID        : Integer;
+            key TUID      : Integer;
+                PART_DESC : String(60);
+                LOCATION  : String(60);
+                GEO_CODE  : LargeString;
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity prospect {
+            key ID        : Integer;
+            key TUID      : Integer;
+                PROS_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity conditions {
+            key ID       : Integer;
+            key TUID     : Integer;
+                CND_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity threshold {
+            key ID       : Integer;
+            key TUID     : Integer;
+                THD_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity sentiment {
+            key ID        : Integer;
+            key TUID      : Integer;
+                SENT_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity mode {
+            key ID        : Integer;
+            key TUID      : Integer;
+                MODE_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity customer {
+            key ID       : Integer;
+            key TUID     : Integer;
+                CUS_DESC : String(60);
+                LOCATION : String(60);
+                GEO_CODE : LargeString;
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity recommend {
+            key ID       : Integer;
+            key TUID     : Integer;
+                REC_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity lsp {
+            key ID       : Integer;
+            key TUID     : Integer;
+                LSP_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity rule {
+            key ID        : Integer;
+            key TUID      : Integer;
+                RULE_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity action {
+            key ID       : Integer;
+            key TUID     : Integer;
+                ACT_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity interpretation {
+            key ID          : Integer;
+            key TUID        : Integer;
+                INTERP_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{}}*/
+        entity meter {
+            key ID       : Integer;
+            key TUID     : Integer;
+                MTR_DESC : String(60);
+        };
+    };
+
+    context TSM_T {
+        /*@@layout{"layoutInfo":{"x":783,"y":258.5}}*/
+        entity proposal {
+            key ID        : Integer;
+            key TUID      : Integer;
+                PROP_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{"x":783,"y":172.5}}*/
+        entity orders {
+            key ID       : Integer;
+            key TUID     : Integer;
+                ORD_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{"x":791,"y":338.5}}*/
+        entity invoice {
+            key ID       : Integer;
+            key TUID     : Integer;
+                INV_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{"x":531,"y":342.5}}*/
+        entity payment {
+            key ID       : Integer;
+            key TUID     : Integer;
+                PAY_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{"x":313,"y":357.5}}*/
+        entity service {
+            key ID        : Integer;
+            key TUID      : Integer;
+                SERV_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{"x":88,"y":339.5}}*/
+        entity tour {
+            key ID        : Integer;
+            key TUID      : Integer;
+                TOUR_DESC : String(60);
+        };
+
+        /*@@layout{"layoutInfo":{"x":444,"y":32.5}}*/
+        entity target {
+            key ID       : Integer;
+            key TUID     : Integer;
+                TGT_DESC : String(60);
+        };
+    };
+
+    context Mercenary_E {
+        entity reference {
+            key ID       : Integer;
+            key TUID     : Integer;
+                REF_DESC : String(60);
+        };
+
+        entity tour_plan {
+            key ID           : Integer;
+            key TUID         : Integer;
+                TOURPLN_DESC : String(60);
+        };
+
+        entity tour_report {
+            key ID           : Integer;
+            key TUID         : Integer;
+                TOURREP_DESC : String(60);
+        };
+
+        entity reality_check {
+            key ID        : Integer;
+            key TUID      : Integer;
+                REAL_DESC : String(60);
+        };
+
+        entity alerts {
+            key ID         : Integer;
+            key TUID       : Integer;
+                ALERT_DESC : String(60);
+        };
+
+        entity engine {
+            key ID       : Integer;
+            key TUID     : Integer;
+                ENG_DESC : String(60);
+        };
+    };
+};
