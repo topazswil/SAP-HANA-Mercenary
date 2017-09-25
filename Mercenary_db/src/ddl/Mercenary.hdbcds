@@ -130,6 +130,19 @@ context Mercenary_MD {
                 ORD_DESC : String(60);
         };
 
+        entity order_details {
+            key ID        : Integer;
+            key TUID      : Integer;
+            key LID       : Integer;
+            key PID       : Integer;
+                PROD_DESC : String(60);
+                QTY       : Integer;
+                UPRICE    : Integer;
+                UOM       : String(20);
+                CURR      : String(20);
+                STATUS    : String(20);
+        };
+
         /*@@layout{"layoutInfo":{"x":791,"y":338.5}}*/
         entity invoice {
             key ID       : Integer;
@@ -137,11 +150,44 @@ context Mercenary_MD {
                 INV_DESC : String(60);
         };
 
+        entity invoice_details {
+            key ID        : Integer;
+            key TUID      : Integer;
+            key LID       : Integer;
+            key ORDID     : Integer;
+            key ORDLID    : Integer;
+            key PID       : Integer;
+                PROD_DESC : String(60);
+                QTY       : Integer;
+                UPRICE    : Integer;
+                UOM       : String(20);
+                CURR      : String(20);
+                STATUS    : String(20);
+        };
+
         /*@@layout{"layoutInfo":{"x":531,"y":342.5}}*/
         entity payment {
             key ID       : Integer;
             key TUID     : Integer;
                 PAY_DESC : String(60);
+        };
+
+        entity payment_details {
+            key ID           : Integer;
+            key TUID         : Integer;
+            key LID          : Integer;
+            key ORDID        : Integer;
+            key ORDLID       : Integer;
+            key PAYID        : Integer;
+                PAY_DESC     : String(60);
+                INVID        : Integer;
+                INVTUID      : Integer;
+                INVLID       : Integer;
+                INVAMT       : Integer;
+                PAYMENT      : Integer;
+                PAYREFERENCE : String(60);
+                CURR         : String(20);
+                STATUS       : String(20);
         };
 
         /*@@layout{"layoutInfo":{"x":313,"y":357.5}}*/
