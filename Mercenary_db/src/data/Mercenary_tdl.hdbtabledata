@@ -3,7 +3,7 @@
     "imports": 
 [
 {
-            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.TSM_M.action",
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.action",
             "source_data": {
                 "data_type": "CSV",
                 "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::action.csv",
@@ -21,6 +21,28 @@
                    "ACT_DESC" 
                 ]
             }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_E.alerts",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::alerts.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "ALERT_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "ALERT_DESC" 
+                ]
+            }
         }
+        
            ]
 }

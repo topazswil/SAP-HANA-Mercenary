@@ -4,7 +4,7 @@ context Mercenary {
 };
 
 context Mercenary_MD {
-    context TSM_M {
+    context Mercenary_M {
         /*@@layout{"layoutInfo":{}}*/
         entity product {
             key ID       : Integer;
@@ -115,7 +115,7 @@ context Mercenary_MD {
         };
     };
 
-    context TSM_T {
+    context Mercenary_T {
         /*@@layout{"layoutInfo":{"x":783,"y":258.5}}*/
         entity proposal {
             key ID        : Integer;
