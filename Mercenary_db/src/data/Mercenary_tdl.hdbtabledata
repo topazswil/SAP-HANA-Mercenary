@@ -42,7 +42,308 @@
                    "ALERT_DESC" 
                 ]
             }
-        }
+        },
         
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.product",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::product.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "PRD_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "PRD_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.category",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::category.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "CAT_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "CAT_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.partner",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::partner.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "PART_DESC": 3,
+                "LOCATION": 4,
+                "GEO_CODE": 5
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "PART_DESC",
+                   "LOCATION",
+                   "GEO_CODE"
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.prospect",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::prospect.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "PROS_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "PROS_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.conditions",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::conditions.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "CND_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "CND_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.threshold",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::threshold.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "THD_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "THD_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.sentiment",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::sentiment.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "SENT_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "SENT_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.mode",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::mode.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "MODE_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "MODE_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.customer",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::customer.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "CUS_DESC": 3,
+                "LOCATION": 4,
+                "GEO_CODE": 5
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "CUS_DESC",
+                   "LOCATION",
+                   "GEO_CODE"
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.recommend",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::recommend.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "REC_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "REC_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.lsp",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::lsp.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "LSP_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "LSP_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.rule",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::rule.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "RULE_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "RULE_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.interpretation",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::interpretation.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "INTERP_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "INTERP_DESC" 
+                ]
+            }
+        },
+        
+        {
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.meter",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::meter.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "MTR_DESC": 3
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                   "MTR_DESC" 
+                ]
+            }
+        }
            ]
 }
