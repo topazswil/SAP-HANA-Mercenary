@@ -127,7 +127,11 @@ context Mercenary_MD {
         entity orders {
             key ID       : Integer;
             key TUID     : Integer;
+            key CID      : Integer;
+            key CTUID    : Integer;
                 ORD_DESC : String(60);
+                ORD_DT : LocalDate;
+                DUE_DT : LocalDate;
         };
 
         entity order_details {

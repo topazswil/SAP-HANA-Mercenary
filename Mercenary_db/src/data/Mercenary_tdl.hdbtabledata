@@ -367,7 +367,7 @@
             }
         },
         
-        {
+                {
             "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.orders",
             "source_data": {
                 "data_type": "CSV",
@@ -377,13 +377,22 @@
             "column_mappings": {
                 "ID": 1,
                 "TUID": 2,
-                "ORD_DESC": 3
-            },
+                "CID" :      3,
+            	"CTUID" :    4,
+                "ORD_DESC": 5,
+                "ORD_DT"   : 6,
+                "DUE_DT"   : 7
+        },
+            
             "import_settings": {
                 "import_columns": [
                     "ID",
                     "TUID",
-                   "ORD_DESC" 
+                    "CID",
+                    "CTUID",
+                   "ORD_DESC",
+                   "ORD_DT",
+                   "DUE_DT"
                 ]
             }
         },
