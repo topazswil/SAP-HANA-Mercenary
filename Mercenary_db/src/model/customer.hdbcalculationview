@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SAP-HANA-Mercenary.Mercenary_db.model::customer" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="customer"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.customer">
+    <resourceUri>SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.customer</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.customer">
+  <attributes>
+    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="Mercenary_MD.Mercenary_M.customer" columnName="ID"/>
+    </attribute>
+    <attribute id="TUID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TUID"/>
+      <keyMapping columnObjectName="Mercenary_MD.Mercenary_M.customer" columnName="TUID"/>
+    </attribute>
+    <attribute id="CUS_DESC" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUS_DESC"/>
+      <keyMapping columnObjectName="Mercenary_MD.Mercenary_M.customer" columnName="CUS_DESC"/>
+    </attribute>
+    <attribute id="LOCATION" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOCATION"/>
+      <keyMapping columnObjectName="Mercenary_MD.Mercenary_M.customer" columnName="LOCATION"/>
+    </attribute>
+    <attribute id="GEO_CODE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GEO_CODE"/>
+      <keyMapping columnObjectName="Mercenary_MD.Mercenary_M.customer" columnName="GEO_CODE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

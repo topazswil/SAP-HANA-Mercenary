@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SAP-HANA-Mercenary.Mercenary_db.model::product" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="product"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.product">
+    <resourceUri>SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.product</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_M.product">
+  <attributes>
+    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="Mercenary_MD.Mercenary_M.product" columnName="ID"/>
+    </attribute>
+    <attribute id="TUID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TUID"/>
+      <keyMapping columnObjectName="Mercenary_MD.Mercenary_M.product" columnName="TUID"/>
+    </attribute>
+    <attribute id="PRD_DESC" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRD_DESC"/>
+      <keyMapping columnObjectName="Mercenary_MD.Mercenary_M.product" columnName="PRD_DESC"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

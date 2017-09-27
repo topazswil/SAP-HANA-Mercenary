@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SAP-HANA-Mercenary.Mercenary_db.model::order" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="order"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.order_details">
+    <resourceUri>SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.order_details</resourceUri>
+  </DataSource>
+  <DataSource id="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.orders">
+    <resourceUri>SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.orders</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID" aggregationType="sum">
+        <descriptions defaultDescription="ID"/>
+      </viewAttribute>
+      <viewAttribute id="TUID" aggregationType="sum">
+        <descriptions defaultDescription="TUID"/>
+      </viewAttribute>
+      <viewAttribute id="ORD_DESC">
+        <descriptions defaultDescription="ORD_DESC"/>
+      </viewAttribute>
+      <viewAttribute id="CID" aggregationType="sum">
+        <descriptions defaultDescription="CID"/>
+      </viewAttribute>
+      <viewAttribute id="CTUID" aggregationType="sum">
+        <descriptions defaultDescription="CTUID"/>
+      </viewAttribute>
+      <viewAttribute id="ORD_DT">
+        <descriptions defaultDescription="ORD_DT"/>
+      </viewAttribute>
+      <viewAttribute id="LID" aggregationType="sum">
+        <descriptions defaultDescription="LID"/>
+      </viewAttribute>
+      <viewAttribute id="LID_1" aggregationType="sum">
+        <descriptions defaultDescription="LID_1"/>
+      </viewAttribute>
+      <viewAttribute id="PID" aggregationType="sum">
+        <descriptions defaultDescription="PID"/>
+      </viewAttribute>
+      <viewAttribute id="PROD_DESC">
+        <descriptions defaultDescription="PROD_DESC"/>
+      </viewAttribute>
+      <viewAttribute id="QTY" aggregationType="sum">
+        <descriptions defaultDescription="QTY"/>
+      </viewAttribute>
+      <viewAttribute id="UPRICE" aggregationType="sum">
+        <descriptions defaultDescription="UPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="UOM">
+        <descriptions defaultDescription="UOM"/>
+      </viewAttribute>
+      <viewAttribute id="CURR">
+        <descriptions defaultDescription="CURR"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute hidden="true" id="JOIN$ID$ID"/>
+      <viewAttribute hidden="true" id="JOIN$TUID$TUID"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Gross" datatype="DECIMAL" length="33" scale="3" expressionLanguage="SQL">
+        <formula>&quot;QTY&quot;*&quot;UPRICE&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.order_details">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LID" source="LID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LID_1" source="LID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PID" source="PID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PROD_DESC" source="PROD_DESC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QTY" source="QTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UPRICE" source="UPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UOM" source="UOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURR" source="CURR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID$ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$TUID$TUID" source="TUID"/>
+    </input>
+    <input node="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.orders">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TUID" source="TUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORD_DESC" source="ORD_DESC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CID" source="CID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CTUID" source="CTUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORD_DT" source="ORD_DT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID$ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$TUID$TUID" source="TUID"/>
+    </input>
+    <joinAttribute name="JOIN$ID$ID"/>
+    <joinAttribute name="JOIN$TUID$TUID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Order ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID"/>
+    </attribute>
+    <attribute id="TUID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Order TUID"/>
+      <keyMapping columnObjectName="Join_1" columnName="TUID"/>
+    </attribute>
+    <attribute id="ORD_DESC" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORD DESC"/>
+      <keyMapping columnObjectName="Join_1" columnName="ORD_DESC"/>
+    </attribute>
+    <attribute id="CID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Customer CID"/>
+      <keyMapping columnObjectName="Join_1" columnName="CID"/>
+    </attribute>
+    <attribute id="CTUID" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Customer CTUID"/>
+      <keyMapping columnObjectName="Join_1" columnName="CTUID"/>
+    </attribute>
+    <attribute id="ORD_DT" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORD_DT"/>
+      <keyMapping columnObjectName="Join_1" columnName="ORD_DT"/>
+    </attribute>
+    <attribute id="LID" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Order LID"/>
+      <keyMapping columnObjectName="Join_1" columnName="LID"/>
+    </attribute>
+    <attribute id="LID_1" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Order LID_1"/>
+      <keyMapping columnObjectName="Join_1" columnName="LID_1"/>
+    </attribute>
+    <attribute id="PID" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product PID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PID"/>
+    </attribute>
+    <attribute id="PROD_DESC" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PROD_DESC"/>
+      <keyMapping columnObjectName="Join_1" columnName="PROD_DESC"/>
+    </attribute>
+    <attribute id="UOM" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UOM"/>
+      <keyMapping columnObjectName="Join_1" columnName="UOM"/>
+    </attribute>
+    <attribute id="CURR" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURR"/>
+      <keyMapping columnObjectName="Join_1" columnName="CURR"/>
+    </attribute>
+    <attribute id="STATUS" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Order STATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="STATUS"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="QTY" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="QTY"/>
+      <measureMapping columnObjectName="Join_1" columnName="QTY"/>
+    </measure>
+    <measure id="UPRICE" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="UPRICE"/>
+      <measureMapping columnObjectName="Join_1" columnName="UPRICE"/>
+    </measure>
+    <measure id="Gross" order="16" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Gross"/>
+      <measureMapping columnObjectName="Join_1" columnName="Gross"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="126" y="232"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.order_details" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.orders" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
