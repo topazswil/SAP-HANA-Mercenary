@@ -396,6 +396,42 @@
                 ]
             }
         },
+
+{
+            "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.order_details",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SAP-HANA-Mercenary.Mercenary_db.data::order_details.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "ID": 1,
+                "TUID": 2,
+                "LID" :      3,
+            	"PID" :    4,
+                "PROD_DESC": 5,
+                "QTY"   : 6,
+                "UPRICE"   : 7,
+                "UOM"   : 8,
+                "CURR"   : 9,
+				"STATUS"   : 10
+        },
+            
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+                    "TUID",
+                    "LID",
+                    "PID",
+                   "PROD_DESC",
+                   "QTY",
+                   "UPRICE",
+                   "UOM",
+				   "CURR",
+				   "STATUS"
+				   ]
+            }
+        },
         
         {
             "target_table": "SAP-HANA-Mercenary.Mercenary_db.ddl::Mercenary_MD.Mercenary_T.invoice",
