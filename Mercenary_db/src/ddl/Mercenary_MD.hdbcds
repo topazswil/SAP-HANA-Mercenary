@@ -1,7 +1,5 @@
 namespace "SAP-HANA-Mercenary".Mercenary_db.ddl;
 
-context Mercenary {
-};
 
 context Mercenary_MD {
     context Mercenary_M {
