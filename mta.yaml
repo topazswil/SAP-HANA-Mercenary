@@ -9,6 +9,15 @@ modules:
    requires:
     - name: hdi-container
 
+
+ - name: Mercenary_node
+   type: nodejs
+   path: Mercenary_node
+   provides:
+    - name: Mercenary_node_api
+      properties:
+         url: ${default-url}
+
 resources:
  - name: hdi-container
    properties:

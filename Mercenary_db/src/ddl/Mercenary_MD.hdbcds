@@ -1,6 +1,6 @@
 namespace "SAP-HANA-Mercenary".Mercenary_db.ddl;
 
-
+@OData.publish : true
 context Mercenary_MD {
     context Mercenary_M {
         /*@@layout{"layoutInfo":{}}*/
@@ -128,8 +128,8 @@ context Mercenary_MD {
             key CID      : Integer;
             key CTUID    : Integer;
                 ORD_DESC : String(60);
-                ORD_DT : LocalDate;
-                DUE_DT : LocalDate;
+                ORD_DT   : LocalDate;
+                DUE_DT   : LocalDate;
         };
 
         entity order_details {

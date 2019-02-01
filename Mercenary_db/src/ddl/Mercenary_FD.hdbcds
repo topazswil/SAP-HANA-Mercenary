@@ -1,0 +1,71 @@
+namespace "SAP-HANA-Mercenary".Mercenary_db.ddl;
+
+@OData.publish : true
+context Mercenary_FD {
+    /*@@layout{"layoutInfo":{}}*/
+
+    entity AircraftCodes {
+        key EquipmentCode : String(3);
+            Manufacturer  : String(30);
+            Type_Model    : String(50);
+            Wake_Category : String(1);
+    };
+
+    entity Airports {
+        key IATA3      : String(3);
+            Airport    : String(100);
+            City       : String(30);
+            Country    : String(50);
+            Elevation  : Integer default 0;
+            Latitude   : Decimal(12, 9);
+            Longitude  : Decimal(12, 9);
+            Departures : association[0..1] to Mercenary_FD.EarthRoutes { ID };
+            Arrivals   : association[0..1] to Mercenary_FD.EarthRoutes { ID };
+    };
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity Airlines {
+        key IATA2   : String(2);
+            Airline : String(100);
+            Country : String(50);
+            Routes  : association[0..1] to Mercenary_FD.EarthRoutes { ID };
+    };
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity EarthRoutes {
+        key ID                 : String(8);
+            Distance           : Integer;
+            StartingAirport    : association[0..1] to Mercenary_FD.Airports;
+            DestinationAirport : association[0..1] to Mercenary_FD.Airports;
+            Airline            : association[0..1] to Mercenary_FD.Airlines;
+            Equipment {
+                aircraft1      : association       to AircraftCodes;
+                aircraft2      : association       to AircraftCodes;
+                aircraft3      : association       to AircraftCodes;
+                aircraft4      : association       to AircraftCodes;
+                aircraft5      : association       to AircraftCodes;
+                aircraft6      : association       to AircraftCodes;
+                aircraft7      : association       to AircraftCodes;
+                aircraft8      : association       to AircraftCodes;
+                aircraft9      : association       to AircraftCodes;
+            };
+    };
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity Itineraries {
+        key ID       : String(10);
+            Name     : String(100);
+            Bookings : association[0..1] to Mercenary_FD.Bookings { BookingNo };
+    };
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity Bookings {
+        key BookingNo          : String(25);
+            Itinerary          : association[0..1] to Mercenary_FD.Itineraries;
+            CustomerName       : String(50);
+            EmailAddress       : String(50);
+            DateOfTravel       : UTCDateTime    not null;
+            Cost               : Decimal(10, 2) not null;
+            NumberOfPassengers : Integer        default 1;
+    };
+};
